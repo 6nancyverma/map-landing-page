@@ -135,7 +135,7 @@ function Form({ formName, setLoad, loc }) {
           />
 
           <div className="flex w-full tel-container" id="phoneField">
-            <div>
+            <div className="lg:hidden">
               <PhoneInput
                 countryCodeEditable={true}
                 autoFormat={false}
@@ -170,8 +170,42 @@ function Form({ formName, setLoad, loc }) {
               />
             </div>
 
+            <div className="hidden lg:block">
+              <PhoneInput
+                countryCodeEditable={true}
+                autoFormat={false}
+                containerClass={"rti"}
+                inputStyle={{
+                  backgroundColor: "transparent",
+                  height: "64px",
+                  width: "100px",
+                  borderRadius: "0",
+                }}
+                buttonStyle={{
+                  backgroundColor: "transparent",
+                  height: "64px",
+                  // borderRadius: "0",
+                }}
+                placeholder={"+971"}
+                inputProps={{
+                  name: "deveot",
+                  maxLength: 15,
+                }}
+                preferredCountries={["ae", "in", "uk", "de", "ru", "sg", "us"]}
+                country={inputCountry}
+                onChange={(value, data) => {
+                  const countryCode = data?.countryCode || "";
+
+                  setFormData((prev) => ({
+                    ...prev,
+                  }));
+                  setPhoneData(data);
+                  setCountryCodeISO(countryCode);
+                }}
+              />
+            </div>
             <input
-              className="ml-4 inputStyle"
+              className="ml-4 inputStyle "
               type="phone"
               placeholder="Phone *"
               name="phone"

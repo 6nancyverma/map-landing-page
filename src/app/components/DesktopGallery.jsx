@@ -2,15 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
-import image1 from "../../../public/gallery1.jpg";
-import image2 from "../../../public/gallery2.jpg";
-import image3 from "../../../public/gallery3.jpg";
-import image4 from "../../../public/gallery4.jpg";
-import image5 from "../../../public/gallery5.jpg";
-import image6 from "../../../public/gallery6.jpg";
-import image7 from "../../../public/gallery7.jpg";
-import image8 from "../../../public/gallery8.jpg";
-import image9 from "../../../public/gallery9.jpg";
 import img1 from "../../../public/desktopGallery/img1.jpg";
 import img2 from "../../../public/desktopGallery/img2.jpg";
 import img3 from "../../../public/desktopGallery/img3.jpg";
@@ -59,54 +50,7 @@ const NextArrow = ({ onClick }) => (
   </div>
 );
 
-function Gallery() {
-  const images = [
-    {
-      id: 1,
-      alt: " gallery image",
-      src: image1,
-    },
-    {
-      id: 2,
-      alt: " gallery image",
-      src: image2,
-    },
-    {
-      id: 3,
-      alt: " gallery image",
-      src: image3,
-    },
-    {
-      id: 4,
-      alt: " gallery image",
-      src: image4,
-    },
-    {
-      id: 5,
-      alt: " gallery image",
-      src: image5,
-    },
-    {
-      id: 6,
-      alt: " gallery image",
-      src: image6,
-    },
-    {
-      id: 7,
-      alt: " gallery image",
-      src: image7,
-    },
-    {
-      id: 8,
-      alt: " gallery image",
-      src: image8,
-    },
-    {
-      id: 9,
-      alt: " gallery image",
-      src: image9,
-    },
-  ];
+function DesktopGallery() {
   const Desktopimages = [
     {
       id: 1,
@@ -163,43 +107,24 @@ function Gallery() {
   return (
     <section
       id="gallery"
-      className="w-full text-center bg-[#F5F5F5] pt-8 pb-10"
+      className="w-full text-center bg-[#F5F5F5] pt-8 pb-10 "
     >
-      <div className="relative w-[90%] m-auto">
+      <div className="relative w-[60%] max-w-[1920px] mx-auto">
         <h1 className="mb-4 text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px]">
           LAST EVENT GLIMPSE
         </h1>
         <div ref={sliderRef} className=" keen-slider">
-          {images.map((item) => (
-            <div key={item.id} className="keen-slider__slide lg:hidden">
-              <div className="">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={1.02 * 385}
-                  height={385}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </div>
-            </div>
-          ))}
           {Desktopimages.map((item) => (
-            <div key={item.id} className="hidden keen-slider__slide lg:block">
+            <div key={item.id} className="keen-slider__slide ">
               <div className="">
                 <Image
                   src={item.src}
                   alt={item.alt}
-                  width={1.02 * 385}
-                  height={385}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                    height: "100%",
-                  }}
+                  width={1.77 * 700}
+                  height={700}
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1920px) 60vw, 33vw"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
@@ -212,4 +137,4 @@ function Gallery() {
   );
 }
 
-export default Gallery;
+export default DesktopGallery;

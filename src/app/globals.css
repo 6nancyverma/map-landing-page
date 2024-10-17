@@ -16,20 +16,24 @@ h6 {
   font-family: var(--font-jost);
 }
 
-h1 {
+/* h1 {
   font-size: 26px;
   font-weight: 600;
   line-height: 37.57px;
-}
+} */
 
 body {
   font-family: var(--font-montserrat);
+}
+#heroAreaDesktop {
+  height: 100vh;
+  min-height: 800px;
 }
 #formComp {
   @apply w-full;
 
   .inputStyle {
-    @apply px-6 w-full h-[3.25rem] font-medium outline-none border border-[#828282] bg-transparent placeholder:text-[1rem] placeholder:text-[#4E4D50] mb-4;
+    @apply px-6 w-full h-[3.25rem] lg:h-[64px] font-medium outline-none border border-[#828282] bg-transparent placeholder:text-[1rem] placeholder:text-[#4E4D50] mb-4;
   }
 
   .preferredModeOfContact {
@@ -45,7 +49,7 @@ body {
   }
 }
 .btn {
-  @apply w-full py-4 leading-6 text-center text-white uppercase bg-black;
+  @apply w-full lg:w-[40%] py-4 leading-6 text-center text-white uppercase bg-black mx-auto;
   border-radius: 4px;
   font-size: 22px;
   line-height: 26.82px;
@@ -80,24 +84,12 @@ body {
 }
 
 .keen-slider__slide {
-  width: 80%;
+  min-width: 80%;
 }
-
-.white-overlay::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(
-    360deg,
-    rgba(255, 255, 255, 0) 8.44%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
-}
-
-.scroll-container::-webkit-scrollbar {
-  display: none;
+@media (min-width: 1024px) {
+  .keen-slider__slide {
+    min-width: 100%;
+  }
 }
 
 .keen-slider:not([data-keen-slider-disabled]) {
