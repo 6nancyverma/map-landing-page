@@ -11,12 +11,12 @@ export default function Home() {
       <main className="mx-auto">
         <Hero />
         <Form />
-        {/* <div className="lg:hidden">
+        <div className="lg:hidden">
           <Gallery />
-        </div> */}
-        {/* <div className="hidden lg:block"> */}
-        <DesktopGallery />
-        {/* </div> */}
+        </div>
+        <div className="hidden lg:block">
+          <DesktopGallery />
+        </div>
         <Footer />
       </main>
     </div>
