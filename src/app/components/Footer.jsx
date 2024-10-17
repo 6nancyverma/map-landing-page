@@ -11,7 +11,7 @@ import footerLogo from "../../../public/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center w-full py-12 bg-[#FFDA5F] ">
+    <footer className="flex flex-col items-center w-full py-12 bg-[#FFDA5F] mt-3 ">
       <Image
         src={footerLogo}
         alt="Bnw Logo"

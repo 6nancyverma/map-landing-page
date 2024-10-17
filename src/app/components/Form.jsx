@@ -7,7 +7,7 @@ import Image from "next/image";
 function Form() {
   const [load, setLoad] = useState(false);
   return (
-    <section className="flex flex-col items-center w-full py-8 ">
+    <section className="flex flex-col items-center w-full pt-10 pb-8 ">
       <div className="flex flex-col items-center justify-center w-full gap-1 mb-3 text-center">
         <span>
           <svg

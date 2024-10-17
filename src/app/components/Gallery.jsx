@@ -2,7 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
-import image1 from "../../../public/g.png";
+import image1 from "../../../public/gallery1.jpg";
+import image2 from "../../../public/gallery2.jpg";
+import image3 from "../../../public/gallery3.jpg";
+import image4 from "../../../public/gallery4.jpg";
+import image5 from "../../../public/gallery5.jpg";
+import image6 from "../../../public/gallery6.jpg";
+import image7 from "../../../public/gallery7.jpg";
+import image8 from "../../../public/gallery8.jpg";
+import image9 from "../../../public/gallery9.jpg";
 
 // import "keen-slider/keen-slider.min.css";
 
@@ -46,28 +54,48 @@ function Gallery() {
   const images = [
     {
       id: 1,
-      alt: " Building image",
+      alt: " gallery image",
       src: image1,
     },
     {
       id: 2,
-      alt: " Building image",
-      src: image1,
+      alt: " gallery image",
+      src: image2,
     },
     {
       id: 3,
-      alt: " Building image",
-      src: image1,
+      alt: " gallery image",
+      src: image3,
     },
     {
       id: 4,
-      alt: " Building image",
-      src: image1,
+      alt: " gallery image",
+      src: image4,
     },
     {
       id: 5,
-      alt: " Building image",
-      src: image1,
+      alt: " gallery image",
+      src: image5,
+    },
+    {
+      id: 6,
+      alt: " gallery image",
+      src: image6,
+    },
+    {
+      id: 7,
+      alt: " gallery image",
+      src: image7,
+    },
+    {
+      id: 8,
+      alt: " gallery image",
+      src: image8,
+    },
+    {
+      id: 9,
+      alt: " gallery image",
+      src: image9,
     },
   ];
 

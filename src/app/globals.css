@@ -80,7 +80,7 @@ body {
 }
 
 .keen-slider__slide {
-  min-width: 80%;
+  width: 80%;
 }
 
 .white-overlay::after {

@@ -1062,6 +1062,7 @@
       position: absolute;
       top: 50%;
       margin-top: -5px;
+      border-radius: 2px;
     }
 
     .arrow {
