@@ -10,7 +10,7 @@ const Hero = () => {
         <Image
           src="/hero.jpg"
           alt="Event Location"
-          layout="responsive"
+          // layout="responsive"
           width={600}
           height={400}
           className="object-cover"
@@ -44,17 +44,17 @@ const Hero = () => {
             Exclusive Event Offering
           </h1>
 
-          <ul className="space-y-1 text-[15px] lg:text-[22px] text-left leading-[20.2px] lg:leading-[32.2px] font-medium lg:flex justify-between items-center">
-            <div>
+          <div className=" text-[15px] lg:text-[22px] text-left leading-[20.2px] lg:leading-[32.2px] font-medium lg:flex justify-between">
+            <ul>
               <li>• 4% DLD Waiver</li>
               <li>• Zero service charges for 2 Years</li>
               <li>• Fully Furnished Apartments near Wynn Resort</li>
-            </div>
-            <div>
+            </ul>
+            <ul>
               <li>• Interest Free payment Plan</li>
               <li>• Free 2 Days Dubai Trip</li>
-            </div>
-          </ul>
+            </ul>
+          </div>
 
           <div className="flex justify-center pt-4 lg:hidden">
             <span>

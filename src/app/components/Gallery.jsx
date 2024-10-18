@@ -34,7 +34,7 @@ const PrevArrow = ({ onClick }) => (
     >
       <path
         d="M8.5 0.5L1.07068 5.74423C0.531665 6.12471 0.502356 6.91371 1.01165 7.33313L8.5 13.5"
-        stroke="white"
+        stroke="black"
         strokeLinecap="round"
       />
     </svg>
@@ -52,7 +52,7 @@ const NextArrow = ({ onClick }) => (
     >
       <path
         d="M1 0.5L8.42932 5.74423C8.96833 6.12471 8.99764 6.91371 8.48835 7.33313L1 13.5"
-        stroke="white"
+        stroke="black"
         strokeLinecap="round"
       />
     </svg>
