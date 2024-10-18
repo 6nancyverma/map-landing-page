@@ -15,11 +15,11 @@ const Footer = () => {
       <Image
         src={footerLogo}
         alt="Bnw Logo"
-        width={100}
-        height={92}
+        width={152}
+        height={73}
         style={{ marginBottom: "20px" }}
       />
-      <span className=" text-sm text-[#9E883E] ">
+      <span className=" text-sm text-[#9E883E] lg:pt-4 ">
         Copyright © 2024 MOTI PROPERTIES
       </span>
       <div className="flex items-center justify-center w-3/5 gap-8 pt-2 lg:pt-4 ">

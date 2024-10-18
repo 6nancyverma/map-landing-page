@@ -105,7 +105,7 @@ function DesktopFormComp({ formName, setLoad, loc }) {
         method={"get"}
         action={"/submit"}
         name={formName}
-        className="w-full py-[1rem] flex flex-col items-center "
+        className="flex flex-col items-center w-full "
         onSubmit={(e) => {
           onSubmit(e);
         }}
@@ -142,13 +142,13 @@ function DesktopFormComp({ formName, setLoad, loc }) {
                 containerClass={"rti"}
                 inputStyle={{
                   backgroundColor: "transparent",
-                  height: "64px",
+                  height: "54px",
                   width: "100px",
                   borderRadius: "0",
                 }}
                 buttonStyle={{
                   backgroundColor: "transparent",
-                  height: "64px",
+                  height: "54px",
                   // borderRadius: "0",
                 }}
                 placeholder={"+971"}

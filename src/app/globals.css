@@ -38,7 +38,7 @@ body {
   @apply w-full;
 
   .inputStyle {
-    @apply px-6 w-full h-[3.25rem] lg:h-[64px] font-medium outline-none border border-[#828282] bg-transparent placeholder:text-[1rem] placeholder:text-[#4E4D50] mb-4;
+    @apply px-6 w-full h-[3.25rem] lg:h-[54px] font-medium outline-none border border-[#828282] bg-transparent placeholder:text-[1rem] placeholder:text-[#4E4D50] mb-4;
   }
 
   .preferredModeOfContact {
@@ -54,7 +54,7 @@ body {
   }
 }
 .btn {
-  @apply w-full lg:w-[40%] py-4 leading-6 text-center text-white uppercase bg-black mx-auto;
+  @apply w-full lg:w-[306px] py-4 leading-6 text-center text-white uppercase bg-black mx-auto;
   border-radius: 4px;
   font-size: 22px;
   line-height: 26.82px;

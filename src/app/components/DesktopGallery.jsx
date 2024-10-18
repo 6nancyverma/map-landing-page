@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import { useKeenSlider } from "keen-slider/react";
+import Marquee from "react-fast-marquee";
 import img1 from "../../../public/desktopGallery/img1.jpg";
 import img2 from "../../../public/desktopGallery/img2.jpg";
 import img3 from "../../../public/desktopGallery/img3.jpg";
@@ -12,127 +11,45 @@ import img7 from "../../../public/desktopGallery/img7.jpg";
 import img8 from "../../../public/desktopGallery/img8.jpg";
 import img9 from "../../../public/desktopGallery/img9.jpg";
 
-const PrevArrow = ({ onClick }) => (
-  <div className="arrows prev-arrow bg-[#E8D8CB]" onClick={onClick}>
-    <svg
-      width="9"
-      height="14"
-      viewBox="0 0 9 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.5 0.5L1.07068 5.74423C0.531665 6.12471 0.502356 6.91371 1.01165 7.33313L8.5 13.5"
-        stroke="black"
-        strokeLinecap="round"
-      />
-    </svg>
-  </div>
-);
-
-const NextArrow = ({ onClick }) => (
-  <div className="arrows next-arrow bg-[#A67A46]" onClick={onClick}>
-    <svg
-      width="10"
-      height="14"
-      viewBox="0 0 10 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M1 0.5L8.42932 5.74423C8.96833 6.12471 8.99764 6.91371 8.48835 7.33313L1 13.5"
-        stroke="black"
-        strokeLinecap="round"
-      />
-    </svg>
-  </div>
-);
-
-function DesktopGallery() {
-  const Desktopimages = [
-    {
-      id: 1,
-      alt: " gallery image",
-      src: img1,
-    },
-    {
-      id: 2,
-      alt: " gallery image",
-      src: img2,
-    },
-    {
-      id: 3,
-      alt: " gallery image",
-      src: img3,
-    },
-    {
-      id: 4,
-      alt: " gallery image",
-      src: img4,
-    },
-    {
-      id: 5,
-      alt: " gallery image",
-      src: img5,
-    },
-    {
-      id: 6,
-      alt: " gallery image",
-      src: img6,
-    },
-    {
-      id: 7,
-      alt: " gallery image",
-      src: img7,
-    },
-    {
-      id: 8,
-      alt: " gallery image",
-      src: img8,
-    },
-    {
-      id: 9,
-      alt: " gallery image",
-      src: img9,
-    },
+const DesktopGallery = () => {
+  const visibleImages = [
+    { id: 1, src: img1 },
+    { id: 2, src: img2 },
+    { id: 3, src: img3 },
+    { id: 4, src: img4 },
+    { id: 5, src: img5 },
+    { id: 6, src: img6 },
+    { id: 7, src: img7 },
+    { id: 8, src: img8 },
+    { id: 9, src: img9 },
   ];
-
-  const [sliderRef, slider] = useKeenSlider({
-    loop: true,
-    slides: { perView: 1 },
-  });
 
   return (
     <section
       id="gallery"
-      className="w-full text-center bg-[#F5F5F5] pt-8 pb-10 "
+      className="w-full text-center bg-[#F5F5F5] pt-16 pb-20 "
     >
-      <div className="relative w-[60%] max-w-[1920px] mx-auto">
-        <h1 className="mb-4 text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px]">
+      <div className="relative w-full max-w-[1920px] mx-auto">
+        <h1 className="mb-6 text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px]">
           LAST EVENT GLIMPSE
         </h1>
-        <div ref={sliderRef} className=" keen-slider">
-          {Desktopimages.map((item) => (
-            <div key={item.id} className="keen-slider__slide ">
-              <div className="">
+        <div className="w-full">
+          <Marquee speed={100} gradient={false} pauseOnHover={true}>
+            {visibleImages.map((item) => (
+              <div key={item.id} className="mx-1">
                 <Image
                   src={item.src}
-                  alt={item.alt}
-                  width={1.77 * 700}
-                  height={700}
-                  quality={90}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1920px) 60vw, 33vw"
-                  className="object-cover w-full h-full"
+                  alt={`gallery ${item.id}`}
+                  width={290}
+                  height={186}
                 />
               </div>
-            </div>
-          ))}
+            ))}
+          </Marquee>
         </div>
-        <PrevArrow onClick={() => slider.current?.prev()} />
-        <NextArrow onClick={() => slider.current?.next()} />
       </div>
     </section>
   );
-}
+};
 
 export default DesktopGallery;
