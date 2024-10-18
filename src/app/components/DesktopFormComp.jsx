@@ -12,7 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import PhoneInput from "react-phone-input-2";
 import "../phone.css";
 
-function Form({ formName, setLoad, loc }) {
+function DesktopFormComp({ formName, setLoad, loc }) {
   let router = useRouter();
   const initState = {
     name: "",
@@ -142,13 +142,13 @@ function Form({ formName, setLoad, loc }) {
                 containerClass={"rti"}
                 inputStyle={{
                   backgroundColor: "transparent",
-                  height: "52px",
+                  height: "64px",
                   width: "100px",
                   borderRadius: "0",
                 }}
                 buttonStyle={{
                   backgroundColor: "transparent",
-                  height: "52px",
+                  height: "64px",
                   // borderRadius: "0",
                 }}
                 placeholder={"+971"}
@@ -169,7 +169,6 @@ function Form({ formName, setLoad, loc }) {
                 }}
               />
             </div>
-
             <input
               className="ml-4 inputStyle "
               type="phone"
@@ -228,4 +227,4 @@ export function LinkButtonComp(props) {
   );
 }
 
-export default Form;
+export default DesktopFormComp;
