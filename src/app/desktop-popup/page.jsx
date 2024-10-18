@@ -29,7 +29,7 @@ export default function DesktopPopup() {
           loading="eager"
         />
 
-        <div className="w-[60%] rounded-[8px] absolute z-20 flex flex-col items-center justify-center  transform -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2">
+        <div className=" w-[70%] xl:w-[60%] rounded-[8px] absolute z-20 flex flex-col items-center justify-center  transform -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2">
           <button
             onClick={handleClose}
             className="text-black text-left pl-20 bg-[#E8D8CB] w-full py-4 flex items-center"
