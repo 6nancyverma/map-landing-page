@@ -1,62 +1,42 @@
 import Image from "next/image";
 import React from "react";
-import desktopHero from "../../../public/desktopHero.jpg";
 
 const Hero = () => {
   return (
     <div className="w-full mx-auto overflow-hidden bg-white">
-      {/* Mobile Hero Image */}
-      <div className="relative lg:hidden">
+      <div className="relative  w-full h-[400px]">
         <Image
           src="/hero.jpg"
           alt="Event Location"
-          // layout="responsive"
-          width={600}
-          height={400}
+          priority={true}
+          sizes="(max-width: 768px) 100vw"
+          fill={true}
           className="object-cover"
         />
       </div>
 
-      {/* Desktop Hero Image */}
-      <div className="relative hidden lg:block h-screen max-h-[1020px]">
-        <Image
-          alt="hero image"
-          src={desktopHero}
-          quality={80}
-          priority={true}
-          fill
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-          loading="eager"
-        />
-      </div>
-
-      {/* Text Content */}
       <div className="bg-[#F5E9DE]">
-        <div className=" p-6 lg:py-10 lg:px-8 xl:px-24   max-w-[1920px] mx-auto">
-          <h1 className=" lg:border-[0.5px] lg:pb-4 lg:border-b-[#A01010]   text-[16px] text-[#A01010] font-medium leading-[23.12px] uppercase lg:text-[24px] lg:leading-[34.68px]">
+        <div className="p-6 max-w-[1920px] mx-auto">
+          <h1 className="text-[16px] text-[#A01010] font-medium leading-[23.12px] uppercase ">
             9-10 Nov. 2024 | JW Marriott, Bengaluru
           </h1>
 
-          <h1 className="mb-2 mt-1 lg:mt-8 uppercase text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px] ">
+          <h1 className="mb-2 mt-1 uppercase text-[26px] leading-[37.57px]  font-semibold ">
             Exclusive Event Offering
           </h1>
 
-          <div className=" text-[15px] lg:text-[22px] text-left leading-[20.2px] lg:leading-[32.2px] font-medium lg:flex justify-between">
+          <div className=" text-[15px] text-left leading-[20.2px] font-medium ">
             <ul>
               <li>• 4% DLD Waiver</li>
               <li>• Zero service charges for 2 Years</li>
               <li>• Fully Furnished Apartments near Wynn Resort</li>
-            </ul>
-            <ul>
+
               <li>• Interest Free payment Plan</li>
               <li>• Free 2 Days Dubai Trip</li>
             </ul>
           </div>
 
-          <div className="flex justify-center pt-4 lg:hidden">
+          <div className="flex justify-center pt-4 ">
             <span>
               <svg
                 width="35"

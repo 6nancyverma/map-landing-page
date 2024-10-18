@@ -12,8 +12,6 @@ import img7 from "../../../public/desktopGallery/img7.jpg";
 import img8 from "../../../public/desktopGallery/img8.jpg";
 import img9 from "../../../public/desktopGallery/img9.jpg";
 
-// import "keen-slider/keen-slider.min.css";
-
 const PrevArrow = ({ onClick }) => (
   <div className="arrows prev-arrow bg-[#E8D8CB]" onClick={onClick}>
     <svg

@@ -11,17 +11,6 @@ import image6 from "../../../public/gallery6.jpg";
 import image7 from "../../../public/gallery7.jpg";
 import image8 from "../../../public/gallery8.jpg";
 import image9 from "../../../public/gallery9.jpg";
-import img1 from "../../../public/desktopGallery/img1.jpg";
-import img2 from "../../../public/desktopGallery/img2.jpg";
-import img3 from "../../../public/desktopGallery/img3.jpg";
-import img4 from "../../../public/desktopGallery/img4.jpg";
-import img5 from "../../../public/desktopGallery/img5.jpg";
-import img6 from "../../../public/desktopGallery/img6.jpg";
-import img7 from "../../../public/desktopGallery/img7.jpg";
-import img8 from "../../../public/desktopGallery/img8.jpg";
-import img9 from "../../../public/desktopGallery/img9.jpg";
-
-// import "keen-slider/keen-slider.min.css";
 
 const PrevArrow = ({ onClick }) => (
   <div className="arrows prev-arrow bg-[#E8D8CB]" onClick={onClick}>
@@ -107,53 +96,6 @@ function Gallery() {
       src: image9,
     },
   ];
-  const Desktopimages = [
-    {
-      id: 1,
-      alt: " gallery image",
-      src: img1,
-    },
-    {
-      id: 2,
-      alt: " gallery image",
-      src: img2,
-    },
-    {
-      id: 3,
-      alt: " gallery image",
-      src: img3,
-    },
-    {
-      id: 4,
-      alt: " gallery image",
-      src: img4,
-    },
-    {
-      id: 5,
-      alt: " gallery image",
-      src: img5,
-    },
-    {
-      id: 6,
-      alt: " gallery image",
-      src: img6,
-    },
-    {
-      id: 7,
-      alt: " gallery image",
-      src: img7,
-    },
-    {
-      id: 8,
-      alt: " gallery image",
-      src: img8,
-    },
-    {
-      id: 9,
-      alt: " gallery image",
-      src: img9,
-    },
-  ];
 
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
@@ -172,23 +114,6 @@ function Gallery() {
         <div ref={sliderRef} className=" keen-slider">
           {images.map((item) => (
             <div key={item.id} className="keen-slider__slide lg:hidden">
-              <div className="">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={1.02 * 385}
-                  height={385}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-          {Desktopimages.map((item) => (
-            <div key={item.id} className="hidden keen-slider__slide lg:block">
               <div className="">
                 <Image
                   src={item.src}

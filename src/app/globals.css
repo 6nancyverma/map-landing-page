@@ -29,6 +29,11 @@ body {
   height: 100vh;
   min-height: 800px;
 }
+#hero {
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+}
 #formComp {
   @apply w-full;
 
