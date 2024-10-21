@@ -2,11 +2,13 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import desktopHero from "../../../public/desktopHero.png";
-import DesktopForm from "../components/DesktopForm";
 import WAIMG from "../../../public/whatsapp.png";
+import DesktopFormComp from "../components/DesktopFormComp";
+import { useState } from "react";
 
 export default function DesktopPopup() {
   const router = useRouter();
+  const [load, setLoad] = useState(false);
 
   const handleClose = () => {
     document.cookie = "hasSeenPopup=true; path=/";
@@ -29,10 +31,10 @@ export default function DesktopPopup() {
           loading="eager"
         />
 
-        <div className=" w-[70%] xl:w-[60%] rounded-[8px] absolute z-20 flex flex-col items-center justify-center  transform -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2">
+        <div className=" w-[70%] xl:w-[60%] rounded-[8px]  absolute z-20 flex flex-col items-center justify-center  transform -translate-x-1/2 -translate-y-1/2 bg-white top-1/2 left-1/2">
           <button
             onClick={handleClose}
-            className="text-black text-left pl-20 bg-[#E8D8CB] w-full py-4 flex items-center"
+            className="text-black text-left  pl-20 bg-[#E8D8CB]  w-full py-4 flex items-center mb-4 rounded-t-[8px]"
           >
             <span className="flex items-center">
               <svg
@@ -119,10 +121,10 @@ export default function DesktopPopup() {
             </div>
           </div>
 
-          <div className=" w-[90%] py-5 ">
-            <DesktopForm />
+          <div className=" w-[70%] pt-5 ">
+            <DesktopFormComp formName={"popupForm"} setLoad={setLoad} />
           </div>
-          <div className={"whatsAppIcon"}>
+          <div className={"whatsAppIcon pb-4"}>
             <a id={"waLink"} href="#" rel={"nofollow"}>
               <Image
                 quality={100}
@@ -133,7 +135,14 @@ export default function DesktopPopup() {
               />
             </a>
           </div>
-          <div className=" text-left pl-20 bg-[#E8D8CB] w-full py-8"></div>
+          <div className=" text-left  bg-[#E8D8CB] w-full py-6 rounded-b-[8px]">
+            <label
+              className={`block btn ${load && "opacity-50 "}`}
+              htmlFor="bottomForm-submit"
+            >
+              {load ? "Submitting..." : "Submit"}
+            </label>
+          </div>
         </div>
       </div>
     </div>
