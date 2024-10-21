@@ -143,6 +143,7 @@ function Form({ formName, setLoad, loc }) {
                 inputStyle={{
                   backgroundColor: "transparent",
                   height: "52px",
+                  fontSize: "16px",
                   width: "100px",
                   borderRadius: "0",
                 }}

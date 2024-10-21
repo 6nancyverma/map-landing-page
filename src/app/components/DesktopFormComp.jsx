@@ -143,6 +143,7 @@ function DesktopFormComp({ formName, setLoad, loc }) {
                 inputStyle={{
                   backgroundColor: "transparent",
                   height: "54px",
+                  fontSize: "16px",
                   width: "100px",
                   borderRadius: "0",
                 }}
