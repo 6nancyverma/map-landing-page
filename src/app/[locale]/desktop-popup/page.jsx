@@ -1,18 +1,20 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import desktopHero from "../../../public/desktopHero.png";
-import WAIMG from "../../../public/whatsapp.png";
-import DesktopFormComp from "../components/DesktopFormComp";
+import desktopHero from "../../../../public/desktopHero.png";
+import WAIMG from "../../../../public/whatsapp.png";
+import DesktopFormComp from "../../components/DesktopFormComp";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function DesktopPopup() {
   const router = useRouter();
   const [load, setLoad] = useState(false);
+  const u = useTranslations("FormCard");
 
   const handleClose = () => {
     document.cookie = "hasSeenPopup=true; path=/";
-    router.push("/desktop");
+    router.replace("/desktop");
   };
 
   return (
@@ -49,7 +51,7 @@ export default function DesktopPopup() {
                   fill="#161919"
                 />
               </svg>
-              <span className="ml-2">Close</span>
+              <span className="ml-2">{u("close")}</span>
             </span>
           </button>
 
@@ -113,10 +115,10 @@ export default function DesktopPopup() {
             </span>
             <div>
               <h2 className="text-[#A18D7C] text-[34px] leading-[49.13px] text-center font-bold  ">
-                BOOK YOUR SPOT
+                {u("title")}
               </h2>
               <p className="text-[18px] leading-[21.94px] text-center text-[#828282]  ">
-                You will save 5-10% more if you’re booking <br /> on event day.
+                {u("description_1")} <br /> {u("description_2")}
               </p>
             </div>
           </div>
@@ -140,7 +142,7 @@ export default function DesktopPopup() {
               className={`block btn ${load && "opacity-50 "}`}
               htmlFor="bottomForm-submit"
             >
-              {load ? "Submitting..." : "Submit"}
+              {load ? u("submitting") : u("submit")}
             </label>
           </div>
         </div>

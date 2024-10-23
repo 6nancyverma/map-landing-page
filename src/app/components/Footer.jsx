@@ -8,8 +8,10 @@ import React from "react";
 // } from "../[locale]/utils/icons";
 import Image from "next/image";
 import footerLogo from "../../../public/logo.png";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("Footer");
   return (
     <footer className="flex flex-col items-center w-full py-12 bg-[#FFDA5F] mt-3 ">
       <Image
@@ -19,9 +21,7 @@ const Footer = () => {
         height={73}
         style={{ marginBottom: "20px" }}
       />
-      <span className=" text-sm text-[#9E883E] lg:pt-4 ">
-        Copyright © 2024 MOTI PROPERTIES
-      </span>
+      <span className=" text-sm text-[#9E883E] lg:pt-4 ">{t("title")}</span>
       <div className="flex items-center justify-center w-3/5 gap-8 pt-2 lg:pt-4 ">
         <a
           href={"https://www.facebook.com/profile.php?id=61560542909712"}

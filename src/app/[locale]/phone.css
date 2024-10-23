@@ -11,7 +11,7 @@
   .flag {
     width: 16px;
     height: 11px;
-    background-image: url("../../public/flags.png");
+    background-image: url("../../../public/flags.png");
   }
 
   .ad {

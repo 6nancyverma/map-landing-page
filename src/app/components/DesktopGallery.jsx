@@ -10,8 +10,10 @@ import img6 from "../../../public/desktopGallery/img6.jpg";
 import img7 from "../../../public/desktopGallery/img7.jpg";
 import img8 from "../../../public/desktopGallery/img8.jpg";
 import img9 from "../../../public/desktopGallery/img9.jpg";
+import { useTranslations } from "next-intl";
 
 const DesktopGallery = () => {
+  const t = useTranslations("Gallery");
   const visibleImages = [
     { id: 1, src: img1 },
     { id: 2, src: img2 },
@@ -31,7 +33,7 @@ const DesktopGallery = () => {
     >
       <div className="relative w-full max-w-[1920px] mx-auto">
         <h1 className="mb-6 text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px]">
-          LAST EVENT GLIMPSE
+          {t("title")}
         </h1>
         <div className="w-full">
           <Marquee speed={100} gradient={false} pauseOnHover={true}>

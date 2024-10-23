@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 // import {
@@ -10,9 +10,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 // } from "../utils/utils";
 
 import PhoneInput from "react-phone-input-2";
-import "../phone.css";
+// import "../[locale]/phone.css";
+import "../[locale]/phone.css";
+import { useTranslations } from "next-intl";
 
-function DesktopFormComp({ formName, setLoad, loc }) {
+function DesktopFormComp({ formName, setLoad }) {
+  const t = useTranslations("Form");
   let router = useRouter();
   const initState = {
     name: "",
@@ -113,7 +116,7 @@ function DesktopFormComp({ formName, setLoad, loc }) {
         <div className="flex flex-col w-full gap-2">
           <input
             className="inputStyle"
-            placeholder="Name *"
+            placeholder={t("name")}
             name="name"
             id="name"
             autoComplete="name"
@@ -125,7 +128,7 @@ function DesktopFormComp({ formName, setLoad, loc }) {
           <input
             className="inputStyle"
             type="email"
-            placeholder="Email *"
+            placeholder={t("email")}
             name="email"
             id="email"
             autoComplete={"email"}
@@ -173,7 +176,7 @@ function DesktopFormComp({ formName, setLoad, loc }) {
             <input
               className="ml-4 inputStyle "
               type="phone"
-              placeholder="Phone *"
+              placeholder={t("phone")}
               name="phone"
               id="phone"
               autoComplete={"tel"}

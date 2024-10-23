@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import DesktopFormComp from "./DesktopFormComp";
+import { useTranslations } from "next-intl";
 
 function DesktopForm() {
+  const u = useTranslations("FormCard");
   const [load, setLoad] = useState(false);
   return (
     <section className="flex flex-col items-center w-full mx-auto">
@@ -13,7 +15,7 @@ function DesktopForm() {
           className={`block btn ${load && "opacity-50 "}`}
           htmlFor="bottomForm-submit"
         >
-          {load ? "Submitting..." : "Submit"}
+          {load ? u("submitting") : u("submit")}
         </label>
       </div>
     </section>

@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import WAIMG from "../../../public/whatsapp.png";
-import FormComp from "../components/FormComp";
+import WAIMG from "../../../../public/whatsapp.png";
+import FormComp from "../../components/FormComp";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function MobilePopup() {
   const router = useRouter();
+  const u = useTranslations("FormCard");
   const [load, setLoad] = useState(false);
 
   const handleClose = () => {
@@ -35,7 +37,7 @@ export default function MobilePopup() {
                   fill="#161919"
                 />
               </svg>
-              <span className="ml-2">Close</span>
+              <span className="ml-2"> {u("close")}</span>
             </span>
           </button>
 
@@ -99,10 +101,10 @@ export default function MobilePopup() {
                 </svg>
               </span>
               <h2 className="text-[#A18D7C] text-[30px] leading-[43.35px] text-center font-bold  ">
-                BOOK YOUR SPOT
+                {u("title")}
               </h2>
               <p className="text-[17px] leading-[20.72px] text-center text-[#828282]  ">
-                You will save 5-10% more if you’re booking on event day.
+                {u("description_1")} <br /> {u("description_2")}
               </p>
             </div>
             <FormComp formName={"popupForm"} setLoad={setLoad} />
@@ -125,7 +127,7 @@ export default function MobilePopup() {
                 className={`block btn ${load && "opacity-50 "}`}
                 htmlFor="bottomForm-submit"
               >
-                {load ? "Submitting..." : "Submit"}
+                {load ? u("submitting") : u("submit")}
               </label>
             </div>
           </div>

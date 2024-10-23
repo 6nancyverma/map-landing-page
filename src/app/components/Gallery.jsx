@@ -11,6 +11,7 @@ import image6 from "../../../public/gallery6.jpg";
 import image7 from "../../../public/gallery7.jpg";
 import image8 from "../../../public/gallery8.jpg";
 import image9 from "../../../public/gallery9.jpg";
+import { useTranslations } from "next-intl";
 
 const PrevArrow = ({ onClick }) => (
   <div className="arrows prev-arrow bg-[#E8D8CB]" onClick={onClick}>
@@ -49,6 +50,7 @@ const NextArrow = ({ onClick }) => (
 );
 
 function Gallery() {
+  const t = useTranslations("Gallery");
   const images = [
     {
       id: 1,
@@ -109,7 +111,7 @@ function Gallery() {
     >
       <div className="relative w-[90%] m-auto">
         <h1 className="mb-4 text-[26px] leading-[37.57px]  font-semibold lg:text-[38px] lg:leading-[54.91px]">
-          LAST EVENT GLIMPSE
+          {t("title")}
         </h1>
         <div ref={sliderRef} className=" keen-slider">
           {images.map((item) => (

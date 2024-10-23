@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import desktopHero from "../../../public/desktopHero.png";
@@ -5,8 +6,11 @@ import logo from "../../../public/map.png";
 import aldar from "../../../public/aldar.png";
 import WAIMG from "../../../public/whatsapp.png";
 import DesktopForm from "./DesktopForm";
+import { useTranslations } from "next-intl";
 
 const DesktopHero = () => {
+  const t = useTranslations("Hero");
+  const u = useTranslations("FormCard");
   return (
     <div className="w-full mx-auto overflow-hidden bg-white">
       <div className="relative h-screen max-h-[1020px]">
@@ -45,11 +49,12 @@ const DesktopHero = () => {
 
         <div className="absolute z-20 text-white transform -translate-y-1/2 top-1/2 left-[5%]">
           <h1 className="text-[55px] font-bold uppercase leading-[56px] mb-4">
-            Biggest <br /> Investor’s Meet <br /> in Bangalore
+            {t("event_title_1")} <br /> {t("event_title_2")} <br />{" "}
+            {t("event_title_3")}
           </h1>
           <h2 className="text-[20px] leading-[28.9px] uppercase font-medium mb-4 text-[#FFD13A] ">
-            9-10 Nov. 2024 <span className="mx-2">|</span> JW Marriott,
-            Bengaluru
+            {t("event_date")} <span className="mx-2">|</span>{" "}
+            {t("event_location")}
           </h2>
         </div>
         <div className=" hidden w-[452px] mt-6 absolute z-20 bg-white rounded-[8px]  transform -translate-y-1/2 top-1/2 right-[8%] py-8 px-4 xl:flex xl:flex-col items-center ">
@@ -113,10 +118,10 @@ const DesktopHero = () => {
             </span>
             <div className="">
               <h2 className="text-[#A18D7C] text-[30px] leading-[43.35px] font-bold  ">
-                BOOK YOUR SPOT
+                {u("title")}
               </h2>
               <p className="text-sm leading-[17.7px]  text-[#828282]  ">
-                You will save 5-10% more if you’re booking <br /> on event day.
+                {u("description_1")} <br /> {u("description_2")}
               </p>
             </div>
           </div>
@@ -138,17 +143,17 @@ const DesktopHero = () => {
       <div className="bg-[#F5E9DE]">
         <div className="py-10 px-8 xl:px-24 max-w-[1920px] mx-auto">
           <h1 className="mb-2 mt-8 uppercase font-semibold text-[38px] leading-[54.91px]">
-            Exclusive Event Offering
+            {t("event_offering")}
           </h1>
 
           <div className="text-[22px] text-left leading-[32.2px] font-medium ">
             <ul>
-              <li>• 4% DLD Waiver</li>
-              <li>• Zero service charges for 2 Years</li>
-              <li>• Fully Furnished Apartments near Wynn Resort</li>
+              <li>• {t("benefit_1")}</li>
+              <li>• {t("benefit_2")}</li>
+              <li>• {t("benefit_3")}</li>
 
-              <li>• Interest Free payment Plan</li>
-              <li>• Free 2 Days Dubai Trip</li>
+              <li>• {t("benefit_4")}</li>
+              <li>• {t("benefit_5")}</li>
             </ul>
           </div>
           <div className="flex justify-center pt-4 ">

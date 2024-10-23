@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import FormComp from "./FormComp";
 import WAIMG from "../../../public/whatsapp.png";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 function Form() {
   const [load, setLoad] = useState(false);
+  const u = useTranslations("FormCard");
   return (
     <section className="flex flex-col items-center w-full lg:w-[60%] xl:w-[50%] pt-10 pb-8 lg:pt-20 lg:pb-12 mx-auto">
       <div className="flex flex-col items-center justify-center w-full gap-1 mb-3 text-center">
@@ -67,10 +69,10 @@ function Form() {
           </svg>
         </span>
         <h2 className="text-[#A18D7C] text-[30px] leading-[43.35px] text-center font-bold  ">
-          BOOK YOUR SPOT
+          {u("title")}
         </h2>
         <p className="text-[17px] leading-[20.72px] text-center text-[#828282]  ">
-          You will save 5-10% more if you’re booking on event day.
+          {u("description_1")} <br /> {u("description_2")}
         </p>
       </div>
 
@@ -81,7 +83,7 @@ function Form() {
           className={`block  mb-6 btn ${load && "opacity-50 "}`}
           htmlFor="bottomForm-submit"
         >
-          {load ? "Submitting..." : "Submit"}
+          {load ? u("submitting") : u("submit")}
         </label>
       </div>
       <div className={"whatsAppIcon"}>

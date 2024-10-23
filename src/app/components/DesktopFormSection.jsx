@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import WAIMG from "../../../public/whatsapp.png";
 import Image from "next/image";
 import DesktopForm from "./DesktopForm";
+import { useTranslations } from "next-intl";
 
 function DesktopFormSection() {
   const [load, setLoad] = useState(false);
+  const u = useTranslations("FormCard");
   return (
     <section className="flex flex-col items-center w-full pt-20 pb-12 mx-auto">
       <div className="flex justify-center gap-4 mb-3 text-center ">
@@ -68,10 +70,10 @@ function DesktopFormSection() {
         </span>
         <div>
           <h2 className="text-[#A18D7C] text-[34px] leading-[49.13px] text-center font-bold  ">
-            BOOK YOUR SPOT
+            {u("title")}
           </h2>
           <p className="text-[18px] leading-[21.94px] text-center text-[#828282]  ">
-            You will save 5-10% more if you’re booking <br /> on event day.
+            {u("description_1")} <br /> {u("description_2")}
           </p>
         </div>
       </div>
