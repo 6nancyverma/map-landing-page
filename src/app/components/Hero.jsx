@@ -16,6 +16,15 @@ const Hero = () => {
           className="object-cover"
         />
       </div>
+      <div className="p-4 px-6 mx-auto">
+        <h1 className="text-[30px] leading-[40px] font-bold uppercase">
+          {t("event_title_1")} {t("event_title_2")} <br /> {t("event_title_3")}
+        </h1>
+        <h2 className="text-[16px] text-[#A01010] font-medium leading-[23.12px] uppercase mt-2">
+          {t("event_date")} <span className="mx-2">|</span>{" "}
+          {t("event_location")}
+        </h2>
+      </div>
 
       <div className="bg-[#F5E9DE]">
         <div className="p-6 max-w-[1920px] mx-auto">
