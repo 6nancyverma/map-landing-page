@@ -1,5 +1,5 @@
 export const siteUrl = "https://localhost:3000";
-export const apiUrl = "https://gcapi.realedgetech.com";
+export const apiUrl = "https://devapi.realedgetech.com";
 
 export const addForm = (data) => {
   return new Promise(async (next) => {

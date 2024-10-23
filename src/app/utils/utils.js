@@ -1,5 +1,7 @@
 export const siteUrl = "https://localhost:3000";
-// export const apiUrl = "https://devapi.realedgetech.com";
+// export const apiUrl = "https://mapsapi.realedge.ai/";
+
+export const apiUrl = "https://devapi.realedgetech.com";
 const CAMPAIGN_NAME = "Map landing page";
 const VisitorAPI = require("visitorapi");
 

@@ -123,7 +123,7 @@ export default function MobilePopup() {
             <div className="w-[85%] m-auto">
               <label
                 className={`block btn ${load && "opacity-50 "}`}
-                htmlFor="bottomForm-submit"
+                htmlFor="popupForm-submit"
               >
                 {load ? "Submitting..." : "Submit"}
               </label>

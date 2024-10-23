@@ -138,7 +138,7 @@ export default function DesktopPopup() {
           <div className=" text-left  bg-[#E8D8CB] w-full py-6 rounded-b-[8px]">
             <label
               className={`block btn ${load && "opacity-50 "}`}
-              htmlFor="bottomForm-submit"
+              htmlFor="popupForm-submit"
             >
               {load ? "Submitting..." : "Submit"}
             </label>

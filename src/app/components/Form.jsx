@@ -70,7 +70,7 @@ function Form() {
           BOOK YOUR SPOT
         </h2>
         <p className="text-[17px] leading-[20.72px] text-center text-[#828282]  ">
-          You will save 5-10% more if you’re booking on event day.
+          You will save 5-10% more if you’re booking <br /> on event day.
         </p>
       </div>
 

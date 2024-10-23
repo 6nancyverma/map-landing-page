@@ -1,32 +1,30 @@
-"use client";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-// import {
-//   addForm,
-//   getCountryCode,
-//   getUrlParams,
-//   getVisitorAPIInfo,
-// } from "../utils/utils";
-
+import { useRouter } from "next/navigation";
+import {
+  addForm,
+  getVisitorAPIInfo,
+  getCountryCode,
+  getUrlParams,
+} from "../utils/utils";
 import PhoneInput from "react-phone-input-2";
 import "../phone.css";
 
 function Form({ formName, setLoad, loc }) {
-  let router = useRouter();
+  const router = useRouter();
+
   const initState = {
     name: "",
     email: "",
     phone: "",
-    preferredModeOfContact: "phone",
+
     note: "",
     formName,
   };
 
   const [formData, setFormData] = useState(initState);
   const [selectedValue, setSelectedValue] = useState("Phone");
-  const [countryCodeISO, setCountryCodeISO] = useState("ae");
-  const [inputCountry, setInputCountry] = useState("ae");
+  const [countryCodeISO, setCountryCodeISO] = useState("");
+  const [inputCountry, setInputCountry] = useState("");
   const [phoneData, setPhoneData] = useState();
   const [visitorInfo, setVisitorInfo] = useState("");
 
@@ -34,30 +32,37 @@ function Form({ formName, setLoad, loc }) {
     setSelectedValue(val);
   };
 
-  // useEffect(() => {
-  //   getVisitorAPIInfo().then((data) => {
-  //     setInputCountry(data?.countryCode);
-  //     setVisitorInfo(data?.notes);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getVisitorAPIInfo().then((data) => {
+      const countryCode = data?.countryCode?.toLowerCase() || "in";
+      const visitorNotes = data?.notes || "";
 
-  // useEffect(() => {
-  //   let x = getCountryCode(countryCodeISO);
-  //   if (x && x.code) {
-  //     setTimeout(() => {
-  //       setPhoneData({
-  //         dailCode: x?.dial_code.replace("+", ""),
-  //       });
-  //       setInputCountry(x.code.toLowerCase());
-  //     }, 20);
-  //   }
-  // }, [countryCodeISO]);
+      setCountryCodeISO(countryCode);
+      setVisitorInfo(visitorNotes);
+
+      const countryData = getCountryCode(countryCode);
+      if (countryData && countryData.dial_code) {
+        setPhoneData({
+          dialCode: countryData.dial_code.replace("+", ""),
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    let x = getCountryCode(countryCodeISO);
+    if (x && x.code) {
+      setPhoneData({
+        dialCode: x?.dial_code.replace("+", ""),
+      });
+      setInputCountry(x.code.toLowerCase());
+    }
+  }, [countryCodeISO]);
 
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    setFormData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
   };
 
   const onSubmit = async (e) => {
@@ -66,10 +71,10 @@ function Form({ formName, setLoad, loc }) {
     let message = `Form Name : ${formName}\n-------\n\n`;
     message += getUrlParams();
 
-    let note = `Preferred Mode Of Contact : ${selectedValue}\n\n\n`;
-    note += message + visitorInfo;
-    const phone = formData.phone ? formData.phone : "";
-    const dialCode = phoneData.dialCode ? `+${phoneData.dialCode}` : "";
+    let note = message + visitorInfo;
+
+    const phone = formData.phone || "";
+    const dialCode = phoneData?.dialCode ? `+${phoneData.dialCode}` : "";
 
     let obj = {
       note,
@@ -83,29 +88,21 @@ function Form({ formName, setLoad, loc }) {
     setLoad(true);
 
     try {
-      // router.push(`/${locale}/thank-you`);
-      //   let doc = await addForm(obj);
+      // let doc = await addForm(obj);
       console.log("obj", obj);
-      let { ok } = doc;
-      if (ok) {
-        router.push(`/${locale}/thank-you`);
-        setLoad(false);
-      } else {
-        setLoad(false);
-      }
+      setLoad(false);
     } catch (error) {
       console.error("Error while submitting form", error);
       setLoad(false);
     }
   };
-
   return (
     <div id={"formComp"}>
       <form
         method={"get"}
         action={"/submit"}
         name={formName}
-        className="w-full py-[1rem] flex flex-col items-center "
+        className="flex flex-col items-center w-full "
         onSubmit={(e) => {
           onSubmit(e);
         }}
@@ -152,7 +149,7 @@ function Form({ formName, setLoad, loc }) {
                   height: "52px",
                   // borderRadius: "0",
                 }}
-                placeholder={"+971"}
+                placeholder={"+91"}
                 inputProps={{
                   name: "deveot",
                   maxLength: 15,
@@ -161,7 +158,6 @@ function Form({ formName, setLoad, loc }) {
                 country={inputCountry}
                 onChange={(value, data) => {
                   const countryCode = data?.countryCode || "";
-
                   setFormData((prev) => ({
                     ...prev,
                   }));
@@ -200,32 +196,6 @@ function Form({ formName, setLoad, loc }) {
         <input type="submit" id={`${formName}-submit`} className="hidden" />
       </form>
     </div>
-  );
-}
-
-export function LinkButtonComp(props) {
-  const locale = useLocale();
-  let x = props.href;
-
-  if (props?.href) {
-    x = props?.href.replace("/?", "");
-  }
-
-  const params1 = new URLSearchParams(x);
-  const params2 = useSearchParams();
-
-  for (let [key, value] of params2) {
-    params1.append(key, value);
-  }
-
-  let furl = `/${locale}/?${params1.toString()}`;
-
-  furl = furl.replace(/%20/g, "+").replace(/%26/g, "&");
-
-  return (
-    <Link href={furl} className={props.className}>
-      {props.children}
-    </Link>
   );
 }
 
