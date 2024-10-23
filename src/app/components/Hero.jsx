@@ -28,15 +28,6 @@ const Hero = () => {
 
       <div className="bg-[#F5E9DE]">
         <div className="p-6 max-w-[1920px] mx-auto">
-          <h1 className="text-[16px] text-[#A01010] font-medium leading-[23.12px] uppercase ">
-            {t("event_date")} <span className="mx-2">|</span>{" "}
-            {t("event_location")}
-          </h1>
-
-          <h1 className="mb-2 mt-1 uppercase text-[26px] leading-[37.57px]  font-semibold ">
-            {t("event_offering")}
-          </h1>
-
           <div className=" text-[15px] text-left leading-[20.2px] font-medium ">
             <ul>
               <li>• {t("benefit_1")}</li>
